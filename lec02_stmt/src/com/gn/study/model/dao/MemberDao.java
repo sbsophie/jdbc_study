@@ -27,7 +27,7 @@ public class MemberDao {
 			
 			stmt = conn.createStatement();
 			
-			String sql = 
+			String sql = "";
 					
 			
 		}catch(Exception e) {
