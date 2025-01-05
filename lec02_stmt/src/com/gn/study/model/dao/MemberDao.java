@@ -14,6 +14,32 @@ public class MemberDao {
 		// 전체 member 정보 조회 후 -> List<Member>정보로 return하기
 		List<Member> list = new ArrayList<Member>();
 		// DB에 SQL문 요청
+		Connection conn = null;
+		Statement stmt = null;
+		
+		try {
+			Class.forName("org.mariadb.jdbc.Driver");
+			
+			String url = "jdbc:mariadb://127.0.0.1:3306/jdbc_basic";
+			String id = "scott";
+			String pw = "tiger";
+			conn = DriverManager.getConnection(url, id, pw);
+			
+			stmt = conn.createStatement();
+			
+			String sql = 
+					
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				stmt.close();
+				conn.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
 		return list;
 	}
 	
