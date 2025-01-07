@@ -13,7 +13,7 @@ public class MemberMenu {
 	
 	// View : 사용자와의 상호작용
 	public void mainMenu() {
-		System.err.println("환영합니다!!");
+		System.out.println("환영합니다!!");
 		// 사용자에게 정보 입력받아서
 		//Controller에게 전달
 		while(true) {
