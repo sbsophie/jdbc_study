@@ -37,6 +37,7 @@ public class MemberController {
 	
 	public int insertMember(String memberId ,String memberPw ,String memberName
 			,String memberEmail ,String memberPhone ,String memberGender) {
+		
 		Member m = new Member(memberId,memberPw,memberName,memberEmail
 				,memberPhone,memberGender);
 		

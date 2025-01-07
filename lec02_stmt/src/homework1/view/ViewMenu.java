@@ -24,9 +24,9 @@ public class ViewMenu {
 			int menu = sc.nextInt();
 			
 			switch(menu) {
-				case 1 :break;
+				case 1 :createMember();break;
 				case 2 :break;
-				case 3 :break;
+//				case 3 :crerateMusic();break;
 				case 4 :break;
 				case 5 :break;
 				case 6 :break;
@@ -34,8 +34,25 @@ public class ViewMenu {
 				case 0 :System.out.println("바이바이~");return;
 				default :System.out.println("잘못된 번호입니다.");break;
 			}
-			
 		}
-		
 	}
+	
+	public void createMember() {
+		System.out.println("=== 회원가입 ===");
+		System.out.println("아이디 : ");
+		String id = sc.nextLine();
+		System.out.println("비밀번호 : ");
+		String pw = sc.nextLine();
+		System.out.println("이름 : ");
+		String name = sc.nextLine();
+		
+		int result = mc.insertMember(id ,pw ,name);
+		if(result >0) {
+			System.out.println("회원가입이 되었습니다.");
+		}else {
+			System.out.println("회원가입에 실패하였습니다.");
+		}
+			
+	}
+	
 }
