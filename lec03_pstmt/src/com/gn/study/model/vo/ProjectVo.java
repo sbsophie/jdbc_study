@@ -1,9 +1,10 @@
-package com.gn.study.model.vo;
+ package com.gn.study.model.vo;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ProjectVo {
+		// 필드
 		private int projectId; // PK(번호)
 		private String projectName; // 프로젝트명
 		private int projectManager; // FK(employee의 emp_id) -> 관리자 사번
@@ -11,8 +12,10 @@ public class ProjectVo {
 		private LocalDateTime regDate; // 등록일
 		private LocalDateTime modDate; // 수정일
 		
-		public ProjectVo() {}
+		//기본생성자
+		public ProjectVo() {} 
 		
+		// 매개변수 생성자
 		public ProjectVo(int projectId, String projectName, int projectManager) {
 			this.projectId = projectId;
 			this.projectName = projectName;

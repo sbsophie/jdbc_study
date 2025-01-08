@@ -51,11 +51,11 @@ public class MemberMenu {
 		System.out.println("비밀번호 : ");
 		String pw = sc.nextLine();
 		
-		Member m = mc.selectMemberOneByIdAndPw(id,pw);
+		Member m = mc.selectMemberOneByIdAndPw(id,pw); //조회해와
 		if(m != null) {
 			System.out.println(m);
 			
-		int result = mc.deleteMember(id, pw,m.getMemberNo());
+		int result = mc.deleteMember(id, pw,m.getMemberNo()); //삭제해
 		if(result >0) {
 			System.out.println("성공적으로 삭제되었습니다.");
 		}else {
@@ -72,9 +72,9 @@ public class MemberMenu {
 		System.out.println("아이디 : ");
 		String id = sc.nextLine();
 		System.out.println("비밀번호 : ");
-		String pw = sc.nextLine();
+		String pw = sc.nextLine(); 
 		
-		Member m = mc.selectMemberOneByIdAndPw(id,pw);
+		Member m = mc.selectMemberOneByIdAndPw(id,pw);  // 조회해 와!!
 		if(m != null) {
 			System.out.println(m);
 			// 이메일,전화번호,이름 정보 입력받아서 수정
@@ -83,9 +83,9 @@ public class MemberMenu {
 			System.out.println("전화번호 : ");
 			String phone = sc.nextLine();
 			System.out.println("이메일 : ");
-			String email = sc.nextLine();
+			String email = sc.nextLine(); 
 			
-			int result = mc.updateMemberInfo(name,phone,email,m.getMemberNo());
+			int result = mc.updateMemberInfo(name,phone,email,m.getMemberNo()); //수정해~
 			if(result >0) {
 				System.out.println("수정 성공!");
 			} else {
@@ -111,7 +111,7 @@ public class MemberMenu {
 		}
 	}
 	
-	// 아이디 기준 회원 조회
+	// 회원 아이디 검색 (아이디 기준 회원 조회)
 	public void searchMemberOneById() {
 		System.out.println("=== 회원 아이디 검색 ===");
 		System.out.println("아이디 : ");
@@ -124,7 +124,6 @@ public class MemberMenu {
 			System.out.println(id+"는 존재하지 않는 정보입니다.");
 		}
 	}
-	
 	
 	// 전체 회원 조회
 	public void selectMemberAll() {
@@ -139,8 +138,6 @@ public class MemberMenu {
 		// (1)만약에 list가 비어있다면 -> 조회된 결과가 없습니다.
 		// (2)만약에 list가 비어있지 않다면 Member목록을 출력
 	}
-	
-	
 	
 	// 회원 추가 화면
 	public void createMember() {

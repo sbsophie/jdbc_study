@@ -10,7 +10,7 @@ import java.util.List;
 import com.gn.study.model.vo.ProjectVo;
 
 public class ProjectDao {
-	
+// 프로젝트 삭제	
 	public int deleteProjectOne(int projectNo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -41,9 +41,8 @@ public class ProjectDao {
 			}
 		}
 		return result;
-		
 	}
-	
+// 프로젝트 정보 수정		
 	public int updateProjectOne(int projectNo ,String projectName) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -76,7 +75,7 @@ public class ProjectDao {
 		}
 		return result;
 	}
-	
+// 담당자기준으로 검색하여 담당프로젝트 정보 조회	(관리자가 없다면 '미정'으로 나와야함)
 	public List<ProjectVo> searchByProjectManager(String managerName){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -127,7 +126,7 @@ public class ProjectDao {
 		}
 		return list;
 	}
-	
+// 프로젝트 이름 검색으로 관련정보 조회	
 	public List<ProjectVo> selectProjectAllByName(String projectName){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -179,7 +178,7 @@ public class ProjectDao {
 		}
 		return list;
 	}
-	
+// 프로젝트 전체 조회		
 	public List<ProjectVo> selectProjectAll(){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -193,15 +192,7 @@ public class ProjectDao {
 			String pw = "tiger";
 			conn = DriverManager.getConnection(url, user, pw);
 			
-			String sql = "SELECT p.project_id "
-						+",p.project_name "
-						+",ifnull(e.emp_name,'미정') AS 'manager_Name' "
-						+",p.project_manager "
-						+ ",p.reg_date "
-						+ ",p.mod_date "
-						+"FROM employee e "
-						+"Right JOIN project p ON p.project_manager = e.emp_id ";
-			
+			String sql = "SELECT * FROM project ";			
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -228,8 +219,7 @@ public class ProjectDao {
 		}
 		return list;
 	}
-	
-	
+// 프로젝트 추가	
 	public int insertProjectOne(String projectName, String managerName) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

@@ -10,6 +10,7 @@ public class ProjectMenu {
 	// 입력과 출력화면
 	private Scanner sc = new Scanner(System.in);
 	private ProjectController pc = new ProjectController();	
+	
 	public void mainMenu() {
 		while(true) {
 			System.out.println("=== (주)ABC 프로젝트 관리 시스템 ===");
@@ -36,7 +37,7 @@ public class ProjectMenu {
 			}	
 		}		
 	}
-	// if~else 중복값
+// if~else 중복값
 	public void printListProject(List<ProjectVo> list) {
 		if(list.isEmpty()) {
 			System.out.println("조회된 프로젝트 정보가 없습니다.");
@@ -46,12 +47,12 @@ public class ProjectMenu {
 			}
 		}
 	}
-	// int - result 중복값
+// int - result 중복값
 	public void printProjectResult(int result ,String menuName) {
 		if(result>0) System.out.println(menuName+"이 정상적으로 완료되었습니다.");
 		else System.out.println(menuName+"중 오류가 발생하였습니다.");
 	}
-	
+// 프로젝트 삭제	
 	public void deleteProjectOne() {
 		System.out.println("*** 프로젝트 삭제 ***");
 		List<ProjectVo> list = pc.selectProjectAll();
@@ -63,7 +64,7 @@ public class ProjectMenu {
 		int result = pc.deleteProjectOne(projectNo);
 		printProjectResult(result,"프로젝트 삭제");
 	}
-	
+// 프로젝트 정보 수정	
 	public void editProjectOne() {
 		System.out.println("*** 프로젝트 정보 수정 ***");
 		List<ProjectVo> list = pc.selectProjectAll();
@@ -78,7 +79,7 @@ public class ProjectMenu {
 		int result = pc.updateProjectOne(projectNo,projectName);
 		printProjectResult(result,"프로젝트 정보 수정");
 	}
-	
+// 담당자기준으로 검색하여 담당프로젝트 정보 조회	(관리자가 없다면 '미정'으로 나와야함)
 	public void searchByProjectManager() {
 		System.out.println("*** 담당자 이름 검색 ***");
 		System.out.println("담당자의 이름을 입력하시면 해당 담당자가 담당하고 있는 프로젝트 정보를 조회해드립니다.");
@@ -88,7 +89,7 @@ public class ProjectMenu {
 		List<ProjectVo> list = pc.searchByProjectManager(managerName);
 		printListProject(list);
 	}
-	
+// 프로젝트 이름 검색으로 관련정보 조회
 	public void searchByProjectName() {
 		System.out.println("*** 프로젝트 이름 검색 ***");
 		System.out.println("프로젝트 이름을 일부 입력하시면, 관련 프로젝트 정보를 조회해드립니다.");
@@ -97,13 +98,13 @@ public class ProjectMenu {
 		List<ProjectVo> list = pc.selectProjectAllByName(projectName);
 		printListProject(list);
 	}
-	
+// 프로젝트 전체 조회	
 	public void showProjectAll() {
 		System.out.println("*** 프로젝트 전체 조회 ***");
 		List<ProjectVo> list = pc.selectProjectAll();
 		printListProject(list);
 	}
-
+// 프로젝트 추가
 	public void createProject() {
 		System.out.println("*** 프로젝트 추가 ***");
 		System.out.println("프로젝트명과 담당자 이름을 입력하세요.");
