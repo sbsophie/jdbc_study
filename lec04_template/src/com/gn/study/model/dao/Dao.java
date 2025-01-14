@@ -5,6 +5,7 @@ import static com.gn.study.common.JDBCTemplate.close;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,53 @@ import java.util.List;
 import com.gn.study.model.vo.Car;
 
 public class Dao {
+	/////////
+	public int signInMember(User u) {
+		Connection conn = null;
+		Statement stmt = null;
+		int result =0;
+		
+		try {
+			String sql = "INSER INTO user(user_id,user_pw,user_name,user_email)"
+					+"VALUES('"+u.getUserId()
+					+"'," + u.getUserPw()
+					+"','"+ u.getUserName()
+					+"','"+ u.getUserEmail() +"')'";
+		result=stmt.executeUpdate(sql);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			stmt.close();
+			conn.close();
+		}
+		return result;
+	}
+	/////////
+	public int selectMemerOneById(String id) {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs =null;
+		int cnt =0;
+		
+		try {
+			String sql = "SELECT COUNT(*) "
+					+"FROM user "
+					+"WHERE user_id = '"+id+"'";
+		rs = stmt.executeQuery(sql);
+		if(rs.next()) {
+			cnt=rs.getInt(1);
+		}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			rs.close();
+			stmt.close();
+			conn.close();
+		}
+		return cnt;
+	}
 	
 	public int deleteCarOne(int carNo, Connection conn) {
 		PreparedStatement pstmt = null;

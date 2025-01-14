@@ -12,6 +12,13 @@ import com.gn.study.model.vo.Car;
 // DB에 접속 -> Connection 객체 생성
 public class Service {
 	private Dao dao = new Dao();
+///////////	
+	public int signInMember(User u) {
+		Connection conn = getconnection();
+		int result = dao.signInMember(u);
+		close(conn);
+		return result;
+	}
 	
 	public int deleteCarOne(int carNo) {
 		Connection conn = getConnection();

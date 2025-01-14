@@ -8,6 +8,12 @@ import com.gn.study.model.vo.Car;
 // view로부터 전달받은 데이터 가공 -> Service 전달
 public class Controller {
 	private Service service = new Service();
+/////////	
+	public int signInMember(String id,String pw, String name,String email) {
+		User u = new User(id,pw,name,email);
+		int result = cd.signInMember(u);
+		return result;
+	}
 	
 	public int deleteCarOne(int carNo) {
 		int result = service.deleteCarOne(carNo);
